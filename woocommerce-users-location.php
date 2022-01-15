@@ -23,17 +23,10 @@ $usWestLeader='<div class="r_leader"><h3>US West</h3><h4>Josh & Amy Long</h4><h4
 function wul_wp_api()
 {
   wp_enqueue_style( 'wul-wp-api-css', plugins_url( '/css/main.css', __FILE__ ));
-    //wp_enqueue_script( 'wul-wp-api-mainjs', '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
   wp_enqueue_script( 'wul-wp-api-js', plugins_url( '/js/custom.js', __FILE__ ));
-
   wp_enqueue_script( 'wul-wp-api-js-parallax', plugins_url( '/js/jquery.parallax-1.1.3.js', __FILE__ ));
 }
 add_action('wp_enqueue_scripts', 'wul_wp_api',999);
-function load_custom_wp_admin_style()
-{
-  wp_enqueue_style( 'wul-admin-wp-api-css', plugins_url( '/css/admin-main.css', __FILE__ ));
-}
-add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
 
 //DISPLAY MAIN PAGE FOR DIRECTORY WITH COUNTRY/REGION LIST
@@ -104,122 +97,121 @@ function near_by_location()
     }
   echo '</div><a href="'.get_site_url().'/prayer-hub-options/" class="start-hub-btn">Start a hub</a></div></div></div></div>';
 }
-
 add_shortcode('near_by_location','near_by_location');
 
+
+//DISPLAY STATE PAGES
 function near_by_location_city()
-{
- global $usSouthLeader,$usNortheastLeader,$usMidwestLeader,$usWestLeader,$africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader;
+  {
+   global $usSouthLeader,$usNortheastLeader,$usMidwestLeader,$usWestLeader,$africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader;
 
-    if($_GET['nearby']){
-      if($_GET['regions']=='South'){
-        echo $usSouthLeader;
+      if($_GET['nearby']){
+        if($_GET['regions']=='South'){
+          echo $usSouthLeader;
 
-        } else if($_GET['regions']=='Northeast'){
-          echo $usNortheastLeader;
+          } else if($_GET['regions']=='Northeast'){
+            echo $usNortheastLeader;
 
-        } else if($_GET['regions']=='Midwest'){
-          echo $usMidwestLeader;
+          } else if($_GET['regions']=='Midwest'){
+            echo $usMidwestLeader;
 
-        } else if($_GET['regions']=='West'){
-          echo $usWestLeader;
+          } else if($_GET['regions']=='West'){
+            echo $usWestLeader;
+          }
+         global $wpdb;
+         $table_name=$wpdb->prefix."register_user";
+      // $table_name=st_register_user;
+          $usstatval = explode(",",$_GET['nearby']);
+           echo '<div class="LocationnearByList"><div class="container" style="padding-top:30px;"><div class="Location-row">';
+                  foreach($usstatval as $stateus)
+          {
+                 $results = $wpdb->get_results( "SELECT * FROM $table_name where  subscription_status='active' AND billing_state='".$stateus."' AND billing_country='US' GROUP BY billing_email  ORDER BY id ASC " );
+
+           //echo "<pre>";
+          // print_r($results);
+              if(!empty($results))                        // Checking if $results have some values or not
+                {
+                   foreach($results as $row){
+              $uemail =$row->billing_email;
+               $aw_email = explode('@',$uemail);
+               if($aw_email[1] == 'awakeningprayerhubs.com' || $aw_email[1] == 'awakeingprayerhubs.com'){
+             if($row->billing_country=='US'){
+                $order = wc_get_order( $row->order_id );
+                $items = $order->get_items();
+                $proid = array();
+              foreach ( $items as $item ) {
+                  $proid[] = $item->get_product_id();
+                 }
+
+
+                 if (!in_array("114686,186", $proid)){
+              //if($item->get_product_id()!=114686 && $item->get_product_id()!=186){
+
+
+                    echo '<div class="location-col-sm-4"><div class="location-list-box">
+                          <h4>'.$row->billing_first_name.' '. $row->billing_last_name.'</h4>
+                          <h6>'.$stateus.'</h6>
+
+                          <p>'.$row->billing_city.'</p>
+                          <p><a class="change-text" data-value="'.$row->billing_email.'">Click To Show Email</a></p>
+                        </div></div>';
+                         }
+
+              }
+           }
+                 }
+              }
         }
-       global $wpdb;
-       $table_name=$wpdb->prefix."register_user";
-    // $table_name=st_register_user;
-        $usstatval = explode(",",$_GET['nearby']);
-         echo '<div class="LocationnearByList"><div class="container" style="padding-top:30px;"><div class="Location-row">';
-                foreach($usstatval as $stateus)
-        {
-               $results = $wpdb->get_results( "SELECT * FROM $table_name where  subscription_status='active' AND billing_state='".$stateus."' AND billing_country='US' GROUP BY billing_email  ORDER BY id ASC " );
+      echo '</div></div></div>';
 
-         //echo "<pre>";
-        // print_r($results);
-            if(!empty($results))                        // Checking if $results have some values or not
-              {
-                 foreach($results as $row){
-            $uemail =$row->billing_email;
+
+      }
+
+        if($_GET['nearbycity']){
+
+        $billing_countrys = array();
+        $billing_citys = array();
+
+       global $wpdb;
+
+       $table_name=$wpdb->prefix."register_user";
+          $usstatval = explode(",",$_GET['nearbycity']);
+          $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active' AND billing_city='".$_GET['nearbycity']."' AND billing_country!='US'  GROUP BY billing_email   ORDER BY id DESC "  );
+          echo '<div class="LocationnearByList"><div class="container" ><div class="Location-row">';
+
+
+             foreach($results as $result)
+            {
+
+            $uemail =$result->billing_email;
              $aw_email = explode('@',$uemail);
              if($aw_email[1] == 'awakeningprayerhubs.com' || $aw_email[1] == 'awakeingprayerhubs.com'){
-           if($row->billing_country=='US'){
-              $order = wc_get_order( $row->order_id );
+
+              $order = wc_get_order( $result->order_id );
               $items = $order->get_items();
-              $proid = array();
-            foreach ( $items as $item ) {
-                $proid[] = $item->get_product_id();
+                 foreach ( $items as $item ) {
+                  $proid[] = $item->get_product_id();
+                 }
+                 if (!in_array("114686,186", $proid)){
+             //if($item->get_product_id()!=114686 && $item->get_product_id()!=186){
+
+             echo '<div class="location-col-sm-4"><div class="location-list-box">
+                    <h4>'. $result->billing_first_name.' '.$result->billing_last_name.'</h4>
+                    <h6>'.$usstatval[0].'</h6>
+                    <p>'.$result->billing_state.'</p>
+                    <p><a class="change-text" data-value="'.$result->billing_email.'">Click To Show Email</a></p>
+                  </div></div>';
+                    // }
                }
-
-
-               if (!in_array("114686,186", $proid)){
-            //if($item->get_product_id()!=114686 && $item->get_product_id()!=186){
-
-
-                  echo '<div class="location-col-sm-4"><div class="location-list-box">
-                        <h4>'.$row->billing_first_name.' '. $row->billing_last_name.'</h4>
-                        <h6>'.$stateus.'</h6>
-
-                        <p>'.$row->billing_city.'</p>
-                        <p><a class="change-text" data-value="'.$row->billing_email.'">Click To Show Email</a></p>
-                      </div></div>';
-                       }
-
+           }
             }
-         }
-               }
+            echo '</div></div></div>';
             }
-      }
-    echo '</div></div></div>';
-
-
-    }
-
-
-
-
-      if($_GET['nearbycity']){
-
-      $billing_countrys = array();
-      $billing_citys = array();
-
-     global $wpdb;
-
-     $table_name=$wpdb->prefix."register_user";
-        $usstatval = explode(",",$_GET['nearbycity']);
-        $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active' AND billing_city='".$_GET['nearbycity']."' AND billing_country!='US'  GROUP BY billing_email   ORDER BY id DESC "  );
-        echo '<div class="LocationnearByList"><div class="container" ><div class="Location-row">';
-
-
-           foreach($results as $result)
-          {
-
-          $uemail =$result->billing_email;
-           $aw_email = explode('@',$uemail);
-           if($aw_email[1] == 'awakeningprayerhubs.com' || $aw_email[1] == 'awakeingprayerhubs.com'){
-
-            $order = wc_get_order( $result->order_id );
-            $items = $order->get_items();
-               foreach ( $items as $item ) {
-                $proid[] = $item->get_product_id();
-               }
-               if (!in_array("114686,186", $proid)){
-           //if($item->get_product_id()!=114686 && $item->get_product_id()!=186){
-
-           echo '<div class="location-col-sm-4"><div class="location-list-box">
-                  <h4>'. $result->billing_first_name.' '.$result->billing_last_name.'</h4>
-                  <h6>'.$usstatval[0].'</h6>
-                  <p>'.$result->billing_state.'</p>
-                  <p><a class="change-text" data-value="'.$result->billing_email.'">Click To Show Email</a></p>
-                </div></div>';
-                  // }
-             }
-         }
-          }
-          echo '</div></div></div>';
-          }
-      }
+  }
 add_shortcode('near_by_location_city','near_by_location_city');
 
 
+//CREATES REGION PAGES AND CITY PAGES
 function get_user_city()
   {
 global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader;
