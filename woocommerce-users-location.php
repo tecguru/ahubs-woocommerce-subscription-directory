@@ -20,9 +20,23 @@ $usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley
 $usMidwestLeader='<div class="r_leader"><h3>US midwest</h3><h4>Tami Wilson</h4><h4>kokomo@awakeningprayerhubs.com</h4><br></div>';
 $usWestLeader='<div class="r_leader"><h3>US West</h3><h4>Josh & Amy Long</h4><h4>fresno@awakeninghouseofprayer.com</h4><br></div>';
 
-// GLOBAL DATA
-// API KEYS
+function wul_wp_api()
+{
+  wp_enqueue_style( 'wul-wp-api-css', plugins_url( '/css/main.css', __FILE__ ));
+    //wp_enqueue_script( 'wul-wp-api-mainjs', '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+  wp_enqueue_script( 'wul-wp-api-js', plugins_url( '/js/custom.js', __FILE__ ));
 
+  wp_enqueue_script( 'wul-wp-api-js-parallax', plugins_url( '/js/jquery.parallax-1.1.3.js', __FILE__ ));
+}
+add_action('wp_enqueue_scripts', 'wul_wp_api',999);
+function load_custom_wp_admin_style()
+{
+  wp_enqueue_style( 'wul-admin-wp-api-css', plugins_url( '/css/admin-main.css', __FILE__ ));
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+
+
+//DISPLAY MAIN PAGE FOR DIRECTORY WITH COUNTRY/REGION LIST
 function near_by_location()
 {
 
