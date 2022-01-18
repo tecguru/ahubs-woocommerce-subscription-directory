@@ -58,33 +58,34 @@ function near_by_location()
 //ADD TO CSV LIST COUNTRIES THAT ARE PART OF A REGION
    $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active'
      and billing_country NOT IN (
-        'AU',
-        'BW',
-        'DK',
-        'EE',
-        'FI',
-        'FR',
-        'GH',
-        'IS',
-        'ID',
-        'LV',
-        'MY',
-        'NL',
-        'NZ',
-        'NG',
-        'NO',
-        'PH',
-        'RO',
-        'SG',
-        'ZA',
-        'SE',
-        'CH',
-        'TW',
-        'UG',
-        'GB',
-        'VN',
-        'ZM',
-        'ZW'
+      'AT'
+      'AU',
+      'BW',
+      'DK',
+      'EE',
+      'FI',
+      'FR',
+      'GH',
+      'IS',
+      'ID',
+      'LV',
+      'MY',
+      'NL',
+      'NZ',
+      'NG',
+      'NO',
+      'PH',
+      'RO',
+      'SG',
+      'ZA',
+      'SE',
+      'CH',
+      'TW',
+      'UG',
+      'GB',
+      'VN',
+      'ZM',
+      'ZW'
         )
     GROUP BY billing_country ORDER BY id ASC");
   foreach($results as $row)
@@ -193,8 +194,6 @@ function near_by_location_city()
                   $proid[] = $item->get_product_id();
                  }
                  if (!in_array("114686,186", $proid)){
-             //if($item->get_product_id()!=114686 && $item->get_product_id()!=186){
-
              echo '<div class="location-col-sm-4"><div class="location-list-box">
                     <h4>'. $result->billing_first_name.' '.$result->billing_last_name.'</h4>
                     <h6>'.$usstatval[0].'</h6>
@@ -238,11 +237,9 @@ global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader;
 
 
     global $wpdb;
-    // $table_name=st_register_user;
 $table_name=$wpdb->prefix."register_user";
     if( $_GET['region'] == 'US'){
      echo $_GET['region'];
-     // AND billing_country!='US'
       echo '<div id="location-banner" class="location-banner">
          <div class="container">
          <h2>'.$billing_country_name.'</h2>
@@ -250,12 +247,10 @@ $table_name=$wpdb->prefix."register_user";
   </div>
   <div class="container"> <div class="countryOptiontabList">';
 
-
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AR,LA,MS,AL,TN,WV,NC,SC,GA,FL &country=US &regions=South" target="_self">South</a><p><span style="font-size:12px;">( AR, LA, MS, AL, TN, WV, DC, VA, NC, SC, GA, FL )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,ME,MA,NH,RI,VT,NJ,NY,PA,MD,DE &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, ME, MA, NH, RI, VT, NJ, NY, PA, MD, DE )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IN,IL,MI,OH,WI,IA,KS,MN,MO,NE,ND,SD,KY &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">(  IN, IL, MI, OH, WI, IA, KS, MN, MO, NE, ND, SD, KY )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AZ,CO,ID,NM,MT,UT,NV,WY,AK,CA,HI,OR,WA,TX,OK &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AZ, CO, ID, NM, MT, UT, NV, WY, AK, CA, HI, OR, WA, TX, OK )</span></p></div>';
-
     }
 
 //ADD else if statement for each region
@@ -266,8 +261,6 @@ $table_name=$wpdb->prefix."register_user";
          </div>
     </div>
     <div class="container"> <div class="countryOptiontabList">';
-
-
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=ZM&country=Zambia" target="_self">Zambia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=ZA&country=South Africa" target="_self">South Africa</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BW&country=Botswana" target="_self">Botswana</a><p><span style="font-size:12px;"></span></p></div>';
@@ -275,7 +268,6 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=UG&country=Uganda" target="_self">Uganda</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NG&country=Nigeria" target="_self">Nigeria</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=ZW&country=Zimbabwe" target="_self">Zimbabwe</a><p><span style="font-size:12px;"></span></p></div>';
-
     }
 
     else if( $billing_country_name_city == 'ASIA'){
@@ -313,7 +305,6 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FI&country=Finland" target="_self">Finland</a><p><span style="font-size:12px;"></span></p></div>';
     }
 
-
     else if( $billing_country_name_city == 'EUROPE'){
       echo '<div id="location-banner" class="location-banner">
          <div class="container">
@@ -322,16 +313,16 @@ $table_name=$wpdb->prefix."register_user";
     </div>
     <div class="container"> <div class="countryOptiontabList">';
 
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GB&country=United Kingdom" target="_self">United Kingdom</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=RO&country=Romania" target="_self">Romania</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=LV&country=Latvia" target="_self">Latvia</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FR&country=France" target="_self">France</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CH&country=Switzerland" target="_self">Switzerland</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AT&country=Austria" target="_self">Austria</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=EE&country=Estonia" target="_self">Estonia</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FR&country=France" target="_self">France</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=LV&country=Latvia" target="_self">Latvia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NL&country=Netherlands" target="_self">Netherlands</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=RO&country=Romania" target="_self">Romania</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CH&country=Switzerland" target="_self">Switzerland</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GB&country=United Kingdom" target="_self">United Kingdom</a><p><span style="font-size:12px;"></span></p></div>';
 
     }
-
 
     else  {
 
