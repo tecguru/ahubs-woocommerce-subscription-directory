@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.0
+ Version: 3.0.1
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -247,10 +247,10 @@ $table_name=$wpdb->prefix."register_user";
   </div>
   <div class="container"> <div class="countryOptiontabList">';
 
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AR,LA,MS,AL,TN,WV,NC,SC,GA,FL &country=US &regions=South" target="_self">South</a><p><span style="font-size:12px;">( AR, LA, MS, AL, TN, WV, DC, VA, NC, SC, GA, FL )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,ME,MA,NH,RI,VT,NJ,NY,PA,MD,DE &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, ME, MA, NH, RI, VT, NJ, NY, PA, MD, DE )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IN,IL,MI,OH,WI,IA,KS,MN,MO,NE,ND,SD,KY &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">(  IN, IL, MI, OH, WI, IA, KS, MN, MO, NE, ND, SD, KY )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AZ,CO,ID,NM,MT,UT,NV,WY,AK,CA,HI,OR,WA,TX,OK &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AZ, CO, ID, NM, MT, UT, NV, WY, AK, CA, HI, OR, WA, TX, OK )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AR,AL,DC,FL,GA,LA,MS,NC,SC,TN,VA,WV &country=US &regions=South" target="_self">South</a><p><span style="font-size:12px;">( AR, ,AL, DC, FL, GA, LA, MS, NC, SC, TN, VA, WV )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,DE,MA,MD,ME,NH,NJ,NY,PA,RI,VT &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IA,IL,IN,KS,KY,MI,MN,MO,ND,NE,OH,SD,WI &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">( IA, IL, IN, KS, KY, MI, MN, MO, ND, NE, OH, SD, WI )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AK,AZ,CA,CO,HI,ID,MT,NM,NV,OK,OR,TX,UT,WA,WY &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AK, AZ, CA, CO, HI, ID, MT, NM, NV, OK, OR, TX, UT, WA, WY )</span></p></div>';
     }
 
 //ADD else if statement for each region
