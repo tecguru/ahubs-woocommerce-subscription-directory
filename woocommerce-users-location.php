@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.0.1
+ Version: 3.0.2
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -12,9 +12,10 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 //Edit Regional Leaders Below
 $africaLeader ='<div class="r_leader"><h3>Africa</h3><h4>Angela Jennings</h4><h4>capetown@awakeningprayerhubs.com</h4><br></div>';
-$scandanaviaLeader='<div class="r_leader"><h3>Scandavia</h3><h4>Caterina Wassener</h4><h4>ekeby@awakeningprayerhubs.com</h4><br></div>';
-$europeLeader='<div class="r_leader"><h3>Europe + UK</h3><h4>Andres Gles</h4><rb><h4>londongreenwich@awakeningprayerhubs.com</h4><br></div>';
 $asiaLeader='<div class="r_leader"><h3>Asia Pacific</h3><h4>Benjamin & Chrissie Sleep</h4><h4>perth@awakeninghouseofprayer.com</h4><br></div>';
+$europeLeader='<div class="r_leader"><h3>Europe + UK</h3><h4>Andres Gles</h4><rb><h4>londongreenwich@awakeningprayerhubs.com</h4><br></div>';
+$scandanaviaLeader='<div class="r_leader"><h3>Scandavia</h3><h4>Caterina Wassener</h4><h4>ekeby@awakeningprayerhubs.com</h4><br></div>';
+$oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Claire Carr</h4><h4>milton@awakeningprayerhubs.com</h4><br></div>';
 $usSouthLeader='<div class="r_leader"><h3>US South</h3><h4>Joy Parkman</h4><h4>birmingham@awakeninghouseofprayer.com</h4><br></div>';
 $usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley</h4><h4>sidney@awakeningprayerhubs.com</h4><br></div>';
 $usMidwestLeader='<div class="r_leader"><h3>US midwest</h3><h4>Tami Wilson</h4><h4>kokomo@awakeningprayerhubs.com</h4><br></div>';
@@ -50,40 +51,53 @@ function near_by_location()
 
 //ADD ECHO BELOW FOR EACH REGION
   echo "<div id='comp-africa' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=AFRICA&country=Africa' target='_self' id='comp-africa' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>AFRICA</span></a></div>";
-  echo "<div id='comp-asia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=ASIA&country=Asia Pacific' target='_self' id='comp-asia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>ASIA PACIFIC</span></a></div>";
-  echo "<div id='comp-scandanavia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=SCANDANAVIA&country=Scandanavia' target='_self' id='comp-scandanavia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>SCANDANAVIA</span></a></div>";
+  echo "<div id='comp-asia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=ASIA&country=Asia' target='_self' id='comp-asia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>ASIA</span></a></div>";
+  echo "<div id='comp-caribbean' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=CARIBBEAN&country=Caribbean' target='_self' id='comp-caribbean' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>CARIBBEAN</span></a></div>";
   echo "<div id='comp-europe' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=EUROPE&country=Europe' target='_self' id='comp-europe' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>EUROPE</span></a></div>";
+  echo "<div id='comp-latin-america' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=LATIN-AMERICA&country=Latin%20America' target='_self' id='comp-latin-america' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>LATIN AMERICA</span></a></div>";
+  echo "<div id='comp-scandanavia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=SCANDANAVIA&country=Scandanavia' target='_self' id='comp-scandanavia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>SCANDANAVIA</span></a></div>";
+  echo "<div id='comp-oceana' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=OCEANA&country=Oceana' target='_self' id='comp-oceana' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Oceana</span></a></div>";
 
 
 //ADD TO CSV LIST COUNTRIES THAT ARE PART OF A REGION
    $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active'
      and billing_country NOT IN (
-      'AT'
+      'AT',
       'AU',
+      'BR',
       'BW',
+      'CH',
+      'CO',
+      'CU',
       'DK',
       'EE',
       'FI',
       'FR',
+      'GB',
       'GH',
-      'IS',
+      'GT',
+      'GY',
       'ID',
+      'IS',
+      'IN',
       'LV',
+      'MX',
       'MY',
-      'NL',
-      'NZ',
       'NG',
+      'NL',
       'NO',
+      'NZ',
       'PH',
+      'PR',
       'RO',
-      'SG',
-      'ZA',
       'SE',
-      'CH',
+      'SG',
+      'TT',
       'TW',
       'UG',
-      'GB',
+      'VE',
       'VN',
+      'ZA',
       'ZM',
       'ZW'
         )
@@ -213,7 +227,7 @@ add_shortcode('near_by_location_city','near_by_location_city');
 //CREATES REGION PAGES AND CITY PAGES
 function get_user_city()
   {
-global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader;
+global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$oceanaLeader;
 
  if($_GET['region']){
         $billing_country_name = $_GET['country'];
@@ -224,16 +238,18 @@ global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader;
         if ($billing_country_name_city == 'AFRICA'){
           echo $africaLeader;
         }
-        if ($billing_country_name_city == 'SCANDANAVIA'){
-          echo $scandanaviaLeader;
+        if ($billing_country_name_city == 'ASIA'){
+          echo $asiaLeader;
         }
         if ($billing_country_name_city == 'EUROPE'){
           echo $europeLeader;
         }
-        if ($billing_country_name_city == 'ASIA'){
-          echo $asiaLeader;
+        if ($billing_country_name_city == 'SCANDANAVIA'){
+          echo $scandanaviaLeader;
         }
-
+        if ($billing_country_name_city == 'OCEANA'){
+          echo $oceanaLeader;
+        }
 
 
     global $wpdb;
@@ -277,32 +293,26 @@ $table_name=$wpdb->prefix."register_user";
          </div>
     </div>
     <div class="container"> <div class="countryOptiontabList">';
-
-
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AU&country=Australia" target="_self">Australia</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NZ&country=New Zealand" target="_self">New Zealand</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IN&country=India" target="_self">India</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=ID&country=Indonesia" target="_self">Indonesia</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=MY&country=Malaysia" target="_self">Malaysia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PH&country=Philippines" target="_self">Philippines</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SG&country=Singapore" target="_self">Singapore</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=MY&country=Malaysia" target="_self">Malaysia</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VN&country=Vietnam" target="_self">Vietnam</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TW&country=Taiwan" target="_self">Taiwan</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VN&country=Vietnam" target="_self">Vietnam</a><p><span style="font-size:12px;"></span></p></div>';
 
     }
 
-    else if( $billing_country_name_city == 'SCANDANAVIA'){
+    else if( $billing_country_name_city == 'CARIBBEAN'){
       echo '<div id="location-banner" class="location-banner">
          <div class="container">
          <h2>'.$billing_country_name.'</h2>
          </div>
     </div>
     <div class="container"> <div class="countryOptiontabList">';
-
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IS&country=Iceland" target="_self">Iceland</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NO&country=Norway" target="_self">Norway</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=DK&country=Denmark" target="_self">Denmark</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SE&country=Sweden" target="_self">Sweden</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FI&country=Finland" target="_self">Finland</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CU&country=Cuba" target="_self">Cuba</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PR&country=Puerto Rico " target="_self">Puerto Rico </a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TT&country=Trinidad" target="_self">Trinidad & Tobago</a><p><span style="font-size:12px;"></span></p></div>';
     }
 
     else if( $billing_country_name_city == 'EUROPE'){
@@ -312,7 +322,6 @@ $table_name=$wpdb->prefix."register_user";
          </div>
     </div>
     <div class="container"> <div class="countryOptiontabList">';
-
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AT&country=Austria" target="_self">Austria</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=EE&country=Estonia" target="_self">Estonia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FR&country=France" target="_self">France</a><p><span style="font-size:12px;"></span></p></div>';
@@ -321,7 +330,46 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=RO&country=Romania" target="_self">Romania</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CH&country=Switzerland" target="_self">Switzerland</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GB&country=United Kingdom" target="_self">United Kingdom</a><p><span style="font-size:12px;"></span></p></div>';
+    }
 
+    else if( $billing_country_name_city == 'LATIN-AMERICA'){
+      echo '<div id="location-banner" class="location-banner">
+         <div class="container">
+         <h2>'.$billing_country_name.'</h2>
+         </div>
+    </div>
+    <div class="container"> <div class="countryOptiontabList">';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BR&country=Brazil" target="_self">Brazil</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CO&country=Colombia" target="_self">Colombia</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GT&country=Guatemala" target="_self">Guatemala</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GY&country=Guyana" target="_self">Guyana</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=MX&country=Mexico" target="_self">Mexico</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VE&country=Venezuela" target="_self">Venezuela</a><p><span style="font-size:12px;"></span></p></div>';
+    }
+
+    else if( $billing_country_name_city == 'SCANDANAVIA'){
+      echo '<div id="location-banner" class="location-banner">
+         <div class="container">
+         <h2>'.$billing_country_name.'</h2>
+         </div>
+    </div>
+    <div class="container"> <div class="countryOptiontabList">';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IS&country=Iceland" target="_self">Iceland</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NO&country=Norway" target="_self">Norway</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=DK&country=Denmark" target="_self">Denmark</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SE&country=Sweden" target="_self">Sweden</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FI&country=Finland" target="_self">Finland</a><p><span style="font-size:12px;"></span></p></div>';
+    }
+
+    else if( $billing_country_name_city == 'OCEANA'){
+      echo '<div id="location-banner" class="location-banner">
+         <div class="container">
+         <h2>'.$billing_country_name.'</h2>
+         </div>
+    </div>
+    <div class="container"> <div class="countryOptiontabList">';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AU&country=Australia" target="_self">Australia</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NZ&country=New Zealand" target="_self">New Zealand</a><p><span style="font-size:12px;"></span></p></div>';
     }
 
     else  {
