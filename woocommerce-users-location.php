@@ -71,6 +71,7 @@ function near_by_location()
       'CU',
       'DK',
       'EE',
+      'ES',
       'FI',
       'FR',
       'GB',
@@ -328,6 +329,7 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=LV&country=Latvia" target="_self">Latvia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NL&country=Netherlands" target="_self">Netherlands</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=RO&country=Romania" target="_self">Romania</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=ES&country=Spain" target="_self">Spain</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CH&country=Switzerland" target="_self">Switzerland</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GB&country=United Kingdom" target="_self">United Kingdom</a><p><span style="font-size:12px;"></span></p></div>';
     }
