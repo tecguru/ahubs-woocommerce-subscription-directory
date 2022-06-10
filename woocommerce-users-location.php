@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.0.4
+ Version: 3.0.5
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -97,6 +97,7 @@ function near_by_location()
       'TT',
       'TW',
       'UG',
+      'VI',
       'VE',
       'VN',
       'ZA',
