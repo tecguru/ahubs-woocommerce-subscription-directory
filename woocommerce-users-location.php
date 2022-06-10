@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.0.3
+ Version: 3.0.4
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -193,7 +193,7 @@ function near_by_location_city()
 
        $table_name=$wpdb->prefix."register_user";
           $usstatval = explode(",",$_GET['nearbycity']);
-          $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active' AND billing_city='".$_GET['nearbycity']."' AND billing_country!='US'  GROUP BY billing_email   ORDER BY id DESC "  );
+          $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active' AND billing_city='".$_GET['nearbycity']."' AND billing_country!='US' AND billing_country != 'VI'   GROUP BY billing_email   ORDER BY id DESC "  );
           echo '<div class="LocationnearByList"><div class="container" ><div class="Location-row">';
 
 
@@ -269,6 +269,8 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,DE,MA,MD,ME,NH,NJ,NY,PA,RI,VT &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IA,IL,IN,KS,KY,MI,MN,MO,ND,NE,OH,SD,WI &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">( IA, IL, IN, KS, KY, MI, MN, MO, ND, NE, OH, SD, WI )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AK,AZ,CA,CO,HI,ID,MT,NM,NV,OK,OR,TX,UT,WA,WY &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AK, AZ, CA, CO, HI, ID, MT, NM, NV, OK, OR, TX, UT, WA, WY )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VI&country=Virgin Islands" target="_self">Virgin Islands</a><p><span style="font-size:12px;">( VI )</span></p></div>';
+
     }
 
 //ADD else if statement for each region
