@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.0.6
+ Version: 3.1
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -56,12 +56,14 @@ function near_by_location()
   echo "<div id='comp-europe' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=EUROPE&country=Europe' target='_self' id='comp-europe' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>EUROPE</span></a></div>";
   echo "<div id='comp-latin-america' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=LATIN-AMERICA&country=Latin%20America' target='_self' id='comp-latin-america' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>LATIN AMERICA</span></a></div>";
   echo "<div id='comp-scandanavia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=SCANDANAVIA&country=Scandanavia' target='_self' id='comp-scandanavia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>SCANDANAVIA</span></a></div>";
+  echo "<div id='comp-middle-east' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=MIDDLE-EAST&country=Middle East' target='_self' id='comp-middle-east' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Middle East</span></a></div>";
   echo "<div id='comp-oceana' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=OCEANA&country=Oceana' target='_self' id='comp-oceana' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Oceana</span></a></div>";
 
 
 //ADD TO CSV LIST COUNTRIES THAT ARE PART OF A REGION
    $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active'
      and billing_country NOT IN (
+      'AE',
       'AT',
       'AU',
       'BR',
@@ -93,6 +95,7 @@ function near_by_location()
       'PH',
       'PR',
       'RO',
+      'SA',
       'SE',
       'SG',
       'TT',
@@ -368,6 +371,17 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=DK&country=Denmark" target="_self">Denmark</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SE&country=Sweden" target="_self">Sweden</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FI&country=Finland" target="_self">Finland</a><p><span style="font-size:12px;"></span></p></div>';
+    }
+
+    else if( $billing_country_name_city == 'MIDDLE-EAST'){
+      echo '<div id="location-banner" class="location-banner">
+         <div class="container">
+         <h2>'.$billing_country_name.'</h2>
+         </div>
+    </div>
+    <div class="container"> <div class="countryOptiontabList">';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AE&country=United Arab Emirates" target="_self">United Arab Emirates</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SA&country=Saudi Arabia" target="_self">Saudi Arabia</a><p><span style="font-size:12px;"></span></p></div>';
     }
 
     else if( $billing_country_name_city == 'OCEANA'){
