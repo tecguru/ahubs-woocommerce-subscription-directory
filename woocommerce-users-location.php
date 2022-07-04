@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.1.1
+ Version: 3.1.12
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -12,7 +12,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 //Edit Regional Leaders Below
 $africaLeader ='<div class="r_leader"><h3>Africa</h3><h4>Angela Jennings</h4><h4>capetown@awakeningprayerhubs.com</h4><br></div>';
-$asiaLeader='<div class="r_leader"><h3>Asia Pacific</h3><h4>Claire Carr</h4><h4>milton@awakeningprayerhubs.com</h4><br></div>';
+$asiaLeader='<div class="r_leader"><h3>Asia Pacific</h3><h4>Daisy Wardani</h4><h4>jakartaselatan@awakeningprayerhubs.com</h4><br></div>';
 $europeLeader='<div class="r_leader"><h3>Europe + UK</h3><h4>Andres Gles</h4><rb><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
 $scandanaviaLeader='<div class="r_leader"><h3>Scandavia</h3><h4>Andre Gles</h4><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
 $oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Claire Carr</h4><h4>milton@awakeningprayerhubs.com</h4><br></div>';
