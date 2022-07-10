@@ -67,7 +67,7 @@ function near_by_location()
       'AT',
       'AU',
       'BR',
-      'BO'
+      'BO',
       'BW',
       'CH',
       'CO',
