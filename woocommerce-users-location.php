@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.11
+ Version: 3.2.12
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -284,7 +284,8 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,DE,MA,MD,ME,NH,NJ,NY,PA,RI,VT &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IA,IL,IN,KS,KY,MI,MN,MO,ND,NE,OH,SD,WI &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">( IA, IL, IN, KS, KY, MI, MN, MO, ND, NE, OH, SD, WI )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AK,AZ,CA,CO,HI,ID,MT,NM,NV,OK,OR,TX,UT,WA,WY &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AK, AZ, CA, CO, HI, ID, MT, NM, NV, OK, OR, TX, UT, WA, WY )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AS,GU,MP,PR,VI" target="_self">Territories</a><p><span style="font-size:12px;">( AS, GU, MP, PR, VI )</span></p></div>';
+    #  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AS,GU,MP,PR,VI" target="_self">Territories</a><p><span style="font-size:12px;">( AS, GU, MP, PR, VI )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AS,GU,MP,PR,VI &country=Territories" target="_self">Territories</a><p><span style="font-size:12px;">( VI )</span></p></div>';
   #    echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VI&country=Virgin Islands" target="_self">Virgin Islands</a><p><span style="font-size:12px;">( VI )</span></p></div>';
 
     }
