@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2
+ Version: 3.2.1
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -129,8 +129,7 @@ function near_by_location()
     }
   echo '</div><a href="'.get_site_url().'/prayer-hub-options/" class="start-hub-btn">Start a hub</a></div></div></div></div>';
 }
-add_shortco
-de('near_by_location','near_by_location');
+add_shortcode('near_by_location','near_by_location');
 
 
 //DISPLAY STATE PAGES
