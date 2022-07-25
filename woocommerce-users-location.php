@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.12
+ Version: 3.2.13
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -284,13 +284,27 @@ $table_name=$wpdb->prefix."register_user";
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,DE,MA,MD,ME,NH,NJ,NY,PA,RI,VT &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IA,IL,IN,KS,KY,MI,MN,MO,ND,NE,OH,SD,WI &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">( IA, IL, IN, KS, KY, MI, MN, MO, ND, NE, OH, SD, WI )</span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AK,AZ,CA,CO,HI,ID,MT,NM,NV,OK,OR,TX,UT,WA,WY &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AK, AZ, CA, CO, HI, ID, MT, NM, NV, OK, OR, TX, UT, WA, WY )</span></p></div>';
-    #  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AS,GU,MP,PR,VI" target="_self">Territories</a><p><span style="font-size:12px;">( AS, GU, MP, PR, VI )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AS,GU,MP,PR,VI &country=Territories" target="_self">Territories</a><p><span style="font-size:12px;">( VI )</span></p></div>';
+      echo "<div id='comp-usterritories' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=US-Territories&country=US-Territories' target='_self' id='comp-usterritories' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Oceana</span></a></div>";
   #    echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VI&country=Virgin Islands" target="_self">Virgin Islands</a><p><span style="font-size:12px;">( VI )</span></p></div>';
-
     }
 
 //ADD else if statement for each region
+
+else if( $billing_country_name_city == 'US-TERRITORIES'){
+  echo '<div id="location-banner" class="location-banner">
+     <div class="container">
+     <h2>'.$billing_country_name.'</h2>
+     </div>
+</div>
+<div class="container"> <div class="countryOptiontabList">';
+  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AS&country=American Samoa" target="_self">American Samoa</a><p><span style="font-size:12px;"></span></p></div>';
+  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GU&country=Guam" target="_self">Guam</a><p><span style="font-size:12px;"></span></p></div>';
+  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=MP&country=Northern Mariana Islands" target="_self">Northern Mariana Islands</a><p><span style="font-size:12px;"></span></p></div>';
+  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PR&country=Puerto Pico" target="_self">Puerto Pico</a><p><span style="font-size:12px;"></span></p></div>';
+  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VI&country=US Virgin Islands" target="_self">US Virgin Islands</a><p><span style="font-size:12px;"></span></p></div>';
+}
+
+
     else if( $billing_country_name_city == 'AFRICA'){
       echo '<div id="location-banner" class="location-banner">
          <div class="container">
