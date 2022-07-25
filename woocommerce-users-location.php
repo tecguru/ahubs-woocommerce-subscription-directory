@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.1
+ Version: 3.2.11
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -39,7 +39,7 @@ function near_by_location()
   <div class='userBanner'>
   <div class='container'>
   <h1>FIND A PRAYER HUB</h1>
-  <img src='".get_site_url()."/wp-content/plugins/woocommerce-users-location/images/location-graphic.jpg'>
+  <img src='".get_site_url()."/wp-content/plugins/ahubs-woocommerce-subscription-directory/images/location-graphic.jpg'>
 
   <p>Our prayer hubs are similar to prayer furnaces, prayer burns or prayer rooms. Every prayer hub, though, has the freedom to take on an expression that makes sense for their region. You can find a prayer hub near you by using the interactive directory below. </p>
   </div>
