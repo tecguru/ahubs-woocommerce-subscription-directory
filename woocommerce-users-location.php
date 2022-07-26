@@ -438,7 +438,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
 </div>
 <div class="container"> <div class="countryOptiontabList">';
 
-$results = $wpdb->get_results( "SELECT billing_city, billing_country, billing_email  FROM $table_name where subscription_status='active' AND billing_country='".$_GET['region']."'  GROUP BY billing_city ORDER BY id ASC " );
+$results = $wpdb->get_results( "SELECT billing_city, billing_country, billing_email  FROM $table_name where subscription_status='active' AND billing_email LIKE "%awakeningprayerhubs.com" AND billing_country='".$_GET['region']."'  GROUP BY billing_city ORDER BY id ASC " );
       if(!empty($results))                        // Checking if $results have some values or not
     {
       foreach($results as $row){
@@ -446,6 +446,7 @@ $results = $wpdb->get_results( "SELECT billing_city, billing_country, billing_em
                  $aw_email = explode('@',$uemail);
                  //print_r($row);
                  echo $row->billing_city;
+
                     //echo  $aw_email[1];
        if($aw_email[1] == 'awakeningprayerhubs.com' || $aw_email[1] == 'awakeingprayerhubs.com'){
         if($row->billing_city!=''){
