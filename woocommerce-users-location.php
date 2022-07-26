@@ -444,7 +444,8 @@ $results = $wpdb->get_results( "SELECT billing_city, billing_country, billing_em
       foreach($results as $row){
          $uemail =$row->billing_email;
                  $aw_email = explode('@',$uemail);
-                    echo  $aw_email[1];
+                 print_r($row);
+                    //echo  $aw_email[1];
        if($aw_email[1] == 'awakeningprayerhubs.com' || $aw_email[1] == 'awakeingprayerhubs.com'){
         if($row->billing_city!=''){
          echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearbycity='.$row->billing_city.'&country='.$row->billing_country.'" target="_self">'.$row->billing_city.'</a></div>';
