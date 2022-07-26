@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.15.1
+ Version: 3.2.16
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
