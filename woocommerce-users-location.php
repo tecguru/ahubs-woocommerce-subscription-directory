@@ -19,7 +19,7 @@ $oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Claire Carr</h4><h4>mil
 $usSouthLeader='<div class="r_leader"><h3>US South</h3><h4>Joy Parkman</h4><h4>birmingham@awakeninghouseofprayer.com</h4><br></div>';
 $usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley</h4><h4>sidney@awakeningprayerhubs.com</h4><br></div>';
 $usMidwestLeader='<div class="r_leader"><h3>US midwest</h3><h4>Tami Wilson</h4><h4>kokomo@awakeningprayerhubs.com</h4><br></div>';
-$usWestLeader='<div class="r_leader"><h3>US West</h3><h4>Josh & Amy Long</h4><h4>lauch@awakeningprayerhub.com</h4><br></div>';
+$usWestLeader='<div class="r_leader"><h3>US West</h3><h4>Josh & Amy Long</h4><h4>launch@awakeningprayerhubs.com</h4><br></div>';
 
 function wul_wp_api()
 {
