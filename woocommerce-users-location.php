@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.18
+ Version: 3.2.19
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -13,6 +13,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 //Edit Regional Leaders Below
 $africaLeader ='<div class="r_leader"><h3>Africa</h3><h4>Angela Jennings</h4><h4>capetown@awakeningprayerhubs.com</h4><br></div>';
 $asiaLeader='<div class="r_leader"><h3>Asia Pacific</h3><h4>Daisy Wardani</h4><h4>jakartaselatan@awakeningprayerhubs.com</h4><br></div>';
+$caribbeanLeader='<div class="r_leader"><h3>Caribbean</h3><h4>Joy Parkman</h4><h4>birmingham@awakeningprayerhubs.com</h4><br></div>';
 $europeLeader='<div class="r_leader"><h3>Europe + UK</h3><h4>Andres Gles</h4><rb><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
 $scandanaviaLeader='<div class="r_leader"><h3>Scandavia</h3><h4>Andre Gles</h4><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
 $oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Claire Carr</h4><h4>milton@awakeningprayerhubs.com</h4><br></div>';
@@ -68,6 +69,7 @@ function near_by_location()
       'AT',
       'AU',
       'BR',
+      'BM', /*Bermuda*/
       'BO',
       'BS',
       'BW',
@@ -87,6 +89,7 @@ function near_by_location()
       'GT',
       'GU',
       'GY',
+      'HK', /*Hong Kong*/
       'ID',
       'IL',
       'IS',
@@ -110,6 +113,7 @@ function near_by_location()
       'SE',
       'SG',
       'SS', /*South Sudan*/
+      'TR', /*Turkey*/
       'TT',
       'TJ',
       'TW',
@@ -247,7 +251,7 @@ add_shortcode('near_by_location_city','near_by_location_city');
 //CREATES REGION PAGES AND CITY PAGES
 function get_user_city()
   {
-global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$oceanaLeader;
+global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$oceanaLeader,$caribbeanLeader;
 
  if($_GET['region']){
         $billing_country_name = $_GET['country'];
@@ -260,6 +264,9 @@ global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$oceanaLeader;
         }
         if ($billing_country_name_city == 'ASIA'){
           echo $asiaLeader;
+        }
+        if ($billing_country_name_city == 'CARIBBEAN'){
+          echo $caribbeanLeader;
         }
         if ($billing_country_name_city == 'EUROPE'){
           echo $europeLeader;
@@ -334,6 +341,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
          </div>
     </div>
     <div class="container"> <div class="countryOptiontabList">';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=HK&country=Hong Kong" target="_self">Hong Kong</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IN&country=India" target="_self">India</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=ID&country=Indonesia" target="_self">Indonesia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=JP&country=Japan" target="_self">Japan</a><p><span style="font-size:12px;"></span></p></div>';
@@ -343,6 +351,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SG&country=Singapore" target="_self">Singapore</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TW&country=Taiwan" target="_self">Taiwan</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=Tj&country=Tajikistan" target="_self">Tajikistan</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TK&country=Turkey" target="_self">Turkey</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VN&country=Vietnam" target="_self">Vietnam</a><p><span style="font-size:12px;"></span></p></div>';
 
     }
@@ -355,6 +364,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
     </div>
     <div class="container"> <div class="countryOptiontabList">';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BS&country=Bahamas" target="_self">Bahamas</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BM&country=Bermuda" target="_self">Bermuda</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=DO&country=Dominican Republic" target="_self">Dominican Republic</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CU&country=Cuba" target="_self">Cuba</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PR&country=Puerto Rico " target="_self">Puerto Rico </a><p><span style="font-size:12px;"></span></p></div>';
