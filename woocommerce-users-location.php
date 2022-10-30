@@ -62,7 +62,7 @@ function near_by_location()
 
 
 //ADD TO CSV LIST COUNTRIES THAT ARE PART OF A REGION
-   $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active'
+   $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active' and billing_email LIKE '%@awakening%'
      and billing_country NOT IN (
       'AS',
       'AE',
