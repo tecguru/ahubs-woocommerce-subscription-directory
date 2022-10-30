@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.19
+ Version: 3.2.20
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -310,7 +310,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
   echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AS&country=American Samoa" target="_self">American Samoa</a><p><span style="font-size:12px;"></span></p></div>';
   echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GU&country=Guam" target="_self">Guam</a><p><span style="font-size:12px;"></span></p></div>';
   echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=MP&country=Northern Mariana Islands" target="_self">Northern Mariana Islands</a><p><span style="font-size:12px;"></span></p></div>';
-  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PR&country=Puerto Pico" target="_self">Puerto Pico</a><p><span style="font-size:12px;"></span></p></div>';
+  echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PR&country=Puerto Rico" target="_self">Puerto Rico</a><p><span style="font-size:12px;"></span></p></div>';
   echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VI&country=US Virgin Islands" target="_self">US Virgin Islands</a><p><span style="font-size:12px;"></span></p></div>';
 }
 
