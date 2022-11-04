@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.23
+ Version: 3.2.24
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -22,18 +22,18 @@ $usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley
 $usMidwestLeader='<div class="r_leader"><h3>US midwest</h3><h4>Tami Wilson</h4><h4>kokomo@awakeningprayerhubs.com</h4><br></div>';
 $usWestLeader=
 '<div class="r_leader">
-<center><h4>US West Leaders</h4><br>
+<center><h3>US West Leaders</h3>
 <br>
-<h3>West Pacific: Ray and Lidia Gunaka</h3><br>
-<center><p>California, Nevada, Oregon, Washington</p><br>
-<h4>santaclarita@awakeningprayerhubs.com</h4><br>
+<h3>West Pacific: Ray and Lidia Gunaka</h3>
+<h4>California, Nevada, Oregon, Washington</h4>
+<h4>santaclarita@awakeningprayerhubs.com</h4>
 <br>
-<h3>West Mountain: Annette Kotsay-Osen</h3><br>
-<p>Arizona, Idaho, New Mexico, Utah, Colorado, Wyoming, Montana</p><br>
-<h4>denver@awakeningprayerhubs.com<br>
+<h3>West Mountain: Annette Kotsay-Osen</h3>
+<h4>Arizona, Idaho, New Mexico, Utah, Colorado, Wyoming, Montana</h4>
+<h4>denver@awakeningprayerhubs.com</h4>
 <br>
-</h4><h3>West Central: Teanne Lopez</h3><br>
-<p>Arkansas, Oklahoma, Texas Hawaii, Alaska</p><br>
+<h3>West Central: Teanne Lopez</h3>
+<h4>Arkansas, Oklahoma, Texas Hawaii, Alaska</h4>
 <h4>dallas2@awakeningprayerhub.com</h4><br></center></div>';
 
 function wul_wp_api()
