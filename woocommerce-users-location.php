@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.24
+ Version: 3.2.25
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -33,8 +33,8 @@ $usWestLeader=
 <h4>denver@awakeningprayerhubs.com</h4>
 <br>
 <h3>West Central: Teanne Lopez</h3>
-<h4>Arkansas, Oklahoma, Texas Hawaii, Alaska</h4>
-<h4>dallas2@awakeningprayerhub.com</h4><br></center></div>';
+<h4>Arkansas, Oklahoma, Texas, Hawaii, Alaska</h4>
+<h4>dallas2@awakeningprayerhubs.com</h4><br></center></div>';
 
 function wul_wp_api()
 {
