@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.26
+ Version: 3.2.27
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -32,7 +32,7 @@ $usMidwestLeader='<div class="r_leader">
 <br>
 <h3>Mountain Midwest Leader</h3>
 <h4>Montana, Idaho, Wyoming</h4>
-<h4>Annette Kotsay-Osen </h4?
+<h4>Annette Kotsay-Osen</h4>
 <h4>denver@awakeningprayerhubs.com</h4></div>';
 
 $usWestLeader=
