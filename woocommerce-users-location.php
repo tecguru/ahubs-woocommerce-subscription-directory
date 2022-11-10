@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.25
+ Version: 3.2.26
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -19,7 +19,22 @@ $scandanaviaLeader='<div class="r_leader"><h3>Scandavia</h3><h4>Andre Gles</h4><
 $oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Claire Carr</h4><h4>milton@awakeningprayerhubs.com</h4><br></div>';
 $usSouthLeader='<div class="r_leader"><h3>US South</h3><h4>Joy Parkman</h4><h4>birmingham@awakeninghouseofprayer.com</h4><br></div>';
 $usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley</h4><h4>sidney@awakeningprayerhubs.com</h4><br></div>';
-$usMidwestLeader='<div class="r_leader"><h3>US midwest</h3><h4>Tami Wilson</h4><h4>kokomo@awakeningprayerhubs.com</h4><br></div>';
+$usMidwestLeader='<div class="r_leader">
+<center><h3>East Midwest Leader</h3>
+<h4>Michigan, Indiana, Ohio, Kentucky</h4>
+<h4>Audra Moodley</h4>
+<h4>sidney@awakeningprayerhubs.com</h4>
+<br>
+<h3>Central Midwest Leader</h3>
+<h4>North and South Dakota, Minnesota, Wisconsin, Illinois, Nebraska and Kansas</h4>
+<h4>Teanne Lopez</h4>
+<h4>dallas2@awakeningprayerhubs.com</h4>
+<br>
+<h3>Mountain Midwest Leader</h3>
+<h4>Montana, Idaho, Wyoming</h4>
+<h4>Annette Kotsay-Osen </h4?
+<h4>denver@awakeningprayerhubs.com</h4></div>';
+
 $usWestLeader=
 '<div class="r_leader">
 <center><h3>US West Leaders</h3>
