@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.30
+ Version: 3.2.31
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -384,7 +384,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TW&country=Taiwan" target="_self">Taiwan</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=Tj&country=Tajikistan" target="_self">Tajikistan</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TH&country=Thailand" target="_self">Thailand</a><p><span style="font-size:12px;"></span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TK&country=Turkey" target="_self">Turkey</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TR&country=Turkey" target="_self">Turkey</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VN&country=Vietnam" target="_self">Vietnam</a><p><span style="font-size:12px;"></span></p></div>';
 
     }
