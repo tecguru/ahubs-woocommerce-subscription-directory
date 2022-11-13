@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.31
+ Version: 3.2.32
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -122,6 +122,7 @@ function near_by_location()
       'HK', /*Hong Kong*/
       'ID',
       'IL',
+      'IR', /*Iran*/
       'IS',
       'IN',
       'JM', /*Jamaica*/
@@ -465,6 +466,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AE&country=United Arab Emirates" target="_self">United Arab Emirates</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SA&country=Saudi Arabia" target="_self">Saudi Arabia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IL&country=Israel" target="_self">Israel</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IR&country=Iran" target="_self">Iran</a><p><span style="font-size:12px;"></span></p></div>';
 
     }
 
