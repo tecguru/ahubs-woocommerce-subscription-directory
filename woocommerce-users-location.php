@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.35
+ Version: 3.2.36
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -26,7 +26,7 @@ $usMidwestLeader='<div class="r_leader">
 <h4>sidney@awakeningprayerhubs.com</h4>
 <br>
 <h3>Central Midwest Leader</h3>
-<h4>North and South Dakota, Minnesota, Wisconsin, Illinois, Nebraska and Kansas</h4>
+<h4>North and South Dakota, Iowa, Minnesota, Missouri, Wisconsin, Illinois, Nebraska and Kansas</h4>
 <h4>Teanne Lopez</h4>
 <h4>dallas2@awakeningprayerhubs.com</h4>
 <br>
