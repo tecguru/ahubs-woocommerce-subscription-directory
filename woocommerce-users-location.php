@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.38
+ Version: 3.2.39
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -15,7 +15,7 @@ $africaLeader ='<div class="r_leader"><h3>Africa</h3><h4>Angela Jennings</h4><h4
 $asiaLeader='<div class="r_leader"><h3>Asia Pacific</h3><h4>Daisy Wardani</h4><h4>jakartaselatan@awakeningprayerhubs.com</h4><br></div>';
 $caribbeanLeader='<div class="r_leader"><h3>Caribbean</h3><h4>Joy Parkman</h4><h4>birmingham@awakeningprayerhubs.com</h4><br></div>';
 $europeLeader='<div class="r_leader"><h3>Europe + UK</h3><h4>Andres Gles</h4><rb><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
-$scandanaviaLeader='<div class="r_leader"><h3>Scandavia</h3><h4>Andre Gles</h4><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
+$scandanaviaLeader='<div class="r_leader"><h3>Scandinavia</h3><h4>Andre Gles</h4><h4>london-greenwich@awakeningprayerhubs.com</h4><br></div>';
 $oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Claire Carr</h4><h4>milton@awakeningprayerhubs.com</h4><br></div>';
 $usSouthLeader='<div class="r_leader"><h3>US South</h3><h4>Joy Parkman</h4><h4>birmingham@awakeninghouseofprayer.com</h4><br></div>';
 $usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley</h4><h4>sidney@awakeningprayerhubs.com</h4><br></div>';
@@ -85,7 +85,7 @@ function near_by_location()
   echo "<div id='comp-caribbean' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=CARIBBEAN&country=Caribbean' target='_self' id='comp-caribbean' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>CARIBBEAN</span></a></div>";
   echo "<div id='comp-europe' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=EUROPE&country=Europe' target='_self' id='comp-europe' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>EUROPE</span></a></div>";
   echo "<div id='comp-latin-america' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=LATIN-AMERICA&country=Latin%20America' target='_self' id='comp-latin-america' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>LATIN AMERICA</span></a></div>";
-  echo "<div id='comp-scandanavia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=SCANDANAVIA&country=Scandanavia' target='_self' id='comp-scandanavia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>SCANDANAVIA</span></a></div>";
+  echo "<div id='comp-scandanavia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=SCANDANAVIA&country=Scandinavia' target='_self' id='comp-scandanavia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>SCANDANAVIA</span></a></div>";
   echo "<div id='comp-middle-east' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=MIDDLE-EAST&country=Middle East' target='_self' id='comp-middle-east' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Middle East</span></a></div>";
   echo "<div id='comp-oceana' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=OCEANA&country=Oceana' target='_self' id='comp-oceana' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Oceana</span></a></div>";
 
