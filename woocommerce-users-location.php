@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.3
+ Version: 3.3.1
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -537,5 +537,51 @@ add_shortcode('get_user_city','get_user_city');
 /*Causes Code Below*/
 
 include( plugin_dir_path( __FILE__ ) . '/causes.php');
+
+
+
+function select_hub_cause()
+{
+
+    echo '<select>
+      <option value= "anti-racism">Anti-Racism Hub</option>
+      <option value= "arts-entertainment">Arts & Entertainment Hub</option>
+      <option value= "business-mountain">Business Mountain Hub</option>
+      <option value= "child-abuse">Child Abuse Hub</option>
+      <option value= "domestic-violence">Domestic Violence Hub</option>
+      <option value= "education">Education Hub</option>
+      <option value= "family">Family Hub</option>
+      <option value= "immigration">Immigration Hub</option>
+      <option value= "harvest">Harvest Hub</option>
+      <option value= "healthcare">Healthcare Hub</option>
+      <option value= "human-trafficking">Human Trafficking Hub</option>
+      <option value= "media">Media Hub</option>
+      <option value= "mental-illness">Mental Illness Hub</option>
+      <option value= "missions">Missions Hub</option>
+      <option value= "prison">Prison Hub</option>
+      <option value= "government">Government Hub</option>
+      <option value= "pro-life">Pro-Life Hub</option>
+      <option value= "prodigals">Prodigals Hub</option>
+      <option value= "military ">Military Hub</option>
+    </select>';
+
+  global $wpdb;
+  $userID = get_current_user_id();
+  echo $userID;
+  $results = $wpdb->get_results("SELECT cause FROM ahubs_com.wp_register_user where subscription_status = 'active' and user_id = ". $userID );
+
+  if (!empty($results)) // Checking if $results have some values or not
+  {
+    foreach ($results as $row) {
+      echo $row;
+    }
+
+  }
+}
+
+add_shortcode('leader_cause_selection','select_hub_cause');
+
+
+
 ?>
 
