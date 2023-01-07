@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.2.39
+ Version: 3.3
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -164,7 +164,7 @@ function near_by_location()
       'ZA',
       'ZM',
       'ZW'
-        )
+      )
     GROUP BY billing_country ORDER BY id ASC");
   foreach($results as $row)
     {
@@ -532,3 +532,10 @@ $results = $wpdb->get_results( "SELECT billing_city, billing_country, billing_em
  }
 
 add_shortcode('get_user_city','get_user_city');
+
+
+/*Causes Code Below*/
+
+include( plugin_dir_path( __FILE__ ) . '/causes.php');
+?>
+
