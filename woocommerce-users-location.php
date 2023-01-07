@@ -562,7 +562,7 @@ function select_hub_cause()
       <option value= "government">Government Hub</option>
       <option value= "pro-life">Pro-Life Hub</option>
       <option value= "prodigals">Prodigals Hub</option>
-      <option value= "military ">Military Hub</option>
+      <option value= "military">Military Hub</option>
     </select>';
 
   global $wpdb;
