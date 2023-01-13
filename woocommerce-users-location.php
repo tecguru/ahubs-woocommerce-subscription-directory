@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.3.1
+ Version: 3.4
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -73,11 +73,16 @@ function near_by_location()
 
   <p>Our prayer hubs are similar to prayer furnaces, prayer burns or prayer rooms. Every prayer hub, though, has the freedom to take on an expression that makes sense for their region. You can find a prayer hub near you by using the interactive directory below. </p>
   </div>
-  </div>
-  <div class='container'> <div class='countryOptiontabList 1256'>";
+  </div>";
+  echo '</div><a href="'.get_site_url().'/cause-based-hubs/" class="start-hub-btn">Hubs By Cause</a></div></div></div></div>';
+  echo "<div class='container'> <div class='countryOptiontabList 1256'>";
+
+
 
    global $wpdb;
    $table_name=$wpdb->prefix."register_user";
+
+
 
 //ADD ECHO BELOW FOR EACH REGION
   echo "<div id='comp-africa' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=AFRICA&country=Africa' target='_self' id='comp-africa' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>AFRICA</span></a></div>";
@@ -120,6 +125,7 @@ function near_by_location()
       'GT',
       'GU',
       'GY',
+      'HT', /*HAITI*/
       'HK', /*Hong Kong*/
       'HN', /*Honduras*/
       'ID',
@@ -175,6 +181,7 @@ function near_by_location()
         }
     }
   echo '</div><a href="'.get_site_url().'/prayer-hub-options/" class="start-hub-btn">Start a hub</a></div></div></div></div>';
+
 }
 add_shortcode('near_by_location','near_by_location');
 
@@ -414,6 +421,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=DO&country=Dominican Republic" target="_self">Dominican Republic</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CU&country=Cuba" target="_self">Cuba</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GY&country=Guyana" target="_self">Guyana</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=HT&country=Haiti" target="_self">Haiti</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=JM&country=Jamaica" target="_self">Jamaica</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PR&country=Puerto Rico " target="_self">Puerto Rico </a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=TT&country=Trinidad" target="_self">Trinidad & Tobago</a><p><span style="font-size:12px;"></span></p></div>';
@@ -533,53 +541,7 @@ $results = $wpdb->get_results( "SELECT billing_city, billing_country, billing_em
 
 add_shortcode('get_user_city','get_user_city');
 
-
-/*Causes Code Below*/
-
 include( plugin_dir_path( __FILE__ ) . '/causes.php');
-
-
-
-function select_hub_cause()
-{
-
-    echo '<select>
-      <option value= "anti-racism">Anti-Racism Hub</option>
-      <option value= "arts-entertainment">Arts & Entertainment Hub</option>
-      <option value= "business-mountain">Business Mountain Hub</option>
-      <option value= "child-abuse">Child Abuse Hub</option>
-      <option value= "domestic-violence">Domestic Violence Hub</option>
-      <option value= "education">Education Hub</option>
-      <option value= "family">Family Hub</option>
-      <option value= "immigration">Immigration Hub</option>
-      <option value= "harvest">Harvest Hub</option>
-      <option value= "healthcare">Healthcare Hub</option>
-      <option value= "human-trafficking">Human Trafficking Hub</option>
-      <option value= "media">Media Hub</option>
-      <option value= "mental-illness">Mental Illness Hub</option>
-      <option value= "missions">Missions Hub</option>
-      <option value= "prison">Prison Hub</option>
-      <option value= "government">Government Hub</option>
-      <option value= "pro-life">Pro-Life Hub</option>
-      <option value= "prodigals">Prodigals Hub</option>
-      <option value= "military">Military Hub</option>
-    </select>';
-
-  global $wpdb;
-  $userID = get_current_user_id();
-  echo $userID;
-  $results = $wpdb->get_results("SELECT cause FROM ahubs_com.wp_register_user where subscription_status = 'active' and user_id = ". $userID );
-
-  if (!empty($results)) // Checking if $results have some values or not
-  {
-    foreach ($results as $row) {
-      echo $row;
-    }
-
-  }
-}
-
-add_shortcode('leader_cause_selection','select_hub_cause');
 
 
 
