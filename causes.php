@@ -29,10 +29,12 @@ function causes_home()
   echo "<div id='comp-domestic-violence' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=domestic-violence&country=Domestic%20Violence%20Hub' target='_self' id='comp-domestic-violence' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Domestic Violence Hub</span></a></div>";
   echo "<div id='comp-education' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=education&country=Education%20Hub' target='_self' id='comp-education' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Education Hub</span></a></div>";
   echo "<div id='comp-family' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=family&country=Family%20Hub' target='_self' id='comp-family' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Family Hub</span></a></div>";
+  echo "<div id='comp-first-nations-airzona' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=first-nations-arizona&country=First%20Nations%20Airzona' target='_self' id='comp-first-nations-arizona' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>First Nations Arizona</span></a></div>";
   echo "<div id='comp-immigration' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=immigration&country=Immigration%20Hub' target='_self' id='comp-immigration' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Immigration Hub</span></a></div>";
   echo "<div id='comp-harvest' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=harvest&country=Harvest%20Hub' target='_self' id='comp-harvest' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Harvest Hub</span></a></div>";
   echo "<div id='comp-healthcare' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=healthcare&country=Healthcare%20Hub' target='_self' id='comp-healthcare' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Healthcare Hub</span></a></div>";
   echo "<div id='comp-human-trafficking' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=human-trafficking&country=Human%20Trafficking%20Hub' target='_self' id='comp-human-trafficking' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Human Trafficking Hub</span></a></div>";
+  echo "<div id='comp-marriage ' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=marriage&country=Marriage%20Prayer%20Hub' target='_self' id='comp-marriage' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Marriage Prayer Hub</span></a></div>";
   echo "<div id='comp-media' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=media&country=Media%20Hub' target='_self' id='comp-media' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Media Hub</span></a></div>";
   echo "<div id='comp-mental-illness' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=mental-illness&country=Mental%20Illness%20Hub' target='_self' id='comp-mental-illness' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Mental Illness Hub</span></a></div>";
   echo "<div id='comp-missions' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=missions&country=Missions%20Hub' target='_self' id='comp-missions' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Missions Hub</span></a></div>";
@@ -41,6 +43,7 @@ function causes_home()
   echo "<div id='comp-pro-life' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=pro-life&country=Pro-Life%20Hub' target='_self' id='comp-pro-life' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Pro-Life Hub</span></a></div>";
   echo "<div id='comp-prodigals' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=prodigals&country=Prodigals%20Hub' target='_self' id='comp-prodigals' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Prodigals Hub</span></a></div>";
   echo "<div id='comp-military' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=military&country=Military%20Hub' target='_self' id='comp-military' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Military Hub</span></a></div>";
+  echo "<div id='comp-substance' class='countryOptiontab '><a href='".get_site_url()."/cause-based-hubs/hubs-by-cause/?nearbycity=substance&country=Substance%20Abuse' target='_self' id='comp-substance' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Substance Abuse Hub</span></a></div>";
 
 
 
@@ -56,10 +59,12 @@ function causes_home()
         ,'domestic-violence'
         ,'education'
         ,'family'
+        ,'first-nations-arizona'
         ,'immigration'
         ,'harvest'
         ,'healthcare'
         ,'human-trafficking'
+        ,'marriage'
         ,'media'
         ,'mental-illness'
         ,'missions'
@@ -68,6 +73,7 @@ function causes_home()
         ,'pro-life'
         ,'prodigals'
         ,'military'
+        ,'substance'
         )
     GROUP BY causes ORDER BY id ASC");
 
@@ -147,10 +153,12 @@ function select_hub_cause()
       "domestic-violence"=>"Domestic Violence Hub",
       "education"=>"Education Hub",
       "family"=>"Family Hub",
+      "first-nations-arizona"=>"First Nations Arizona",
       "immigration"=>"Immigration Hub",
       "harvest"=>"Harvest Hub",
       "healthcare"=>"Healthcare Hub",
       "human-trafficking"=>"Human Trafficking Hub",
+      "marriage"=>"Marriage Prayer Hub",
       "media"=>"Media Hub",
       "mental-illness"=>"Mental Illness Hub",
       "missions"=>"Missions Hub",
@@ -158,7 +166,9 @@ function select_hub_cause()
       "government"=>"Government Hub",
       "pro-life"=>"Pro-Life Hub",
       "prodigals"=>"Prodigals Hub",
-      "military"=>"Military Hub");
+      "military"=>"Military Hub",
+      "substance"=>"Substance Abuse Hub"
+    );
   
   $cause_menu = '<form name="Cause" method="POST"><select name="CauseVAR" onchange="submit()">';
   $default_cause = '';
