@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Woocommerce Subscription Directory
- Version: 3.4.2
+ Version: 3.5
  Author: TecGuru
  Description: Location Based on Subscriptions
 */
@@ -9,62 +9,12 @@ defined('ABSPATH') or die('No script kiddies please!');
 ?>
 
 <?php
-/*
-//UK Country Selector
 
-
-// Enqueue the custom checkout script
-add_action( 'wp_enqueue_scripts', 'my_custom_checkout_script' );
-function my_custom_checkout_script() {
-    // Load the checkout script only on the checkout page
-    if ( is_checkout() ) {
-        wp_enqueue_script( 'my-custom-checkout-script', plugin_dir_url( __FILE__ ) . 'js/custom-checkout.js', array( 'jquery' ), '1.0', true );
-    }
-}
-
-
-// Add custom checkout field for UK customers
-add_filter( 'woocommerce_checkout_fields', 'add_custom_checkout_field_uk' );
-function add_custom_checkout_field_uk( $fields ) {
-    $fields['billing']['uk_field'] = array(
-        'type' => 'select',
-        'label' => __( 'Select Your UK Country', 'woocommerce' ),
-        'required' => false,
-        'options' => array(
-            '' => __( 'Select an option', 'woocommerce' ),
-            'England' => __( 'England', 'woocommerce' ),
-            'Scotland' => __( 'Scotland', 'woocommerce' ),
-            'Wales' => __( 'Wales', 'woocommerce' ),
-            'RepublicofIreland' => __( 'Republic of Ireland', 'woocommerce' ),
-            'NorthernIreland' => __( 'Northern Ireland ', 'woocommerce' ),
-        ),
-        'class' => array( 'form-row-wide' ),
-        'clear' => true
-    );
-    return $fields;
-}
-
-// Save custom checkout field data to postmeta
-add_action( 'woocommerce_checkout_create_order', 'save_custom_checkout_field_uk', 10, 2 );
-function save_custom_checkout_field_uk( $order, $data ) {
-    if ( isset( $data['billing']['uk_field'] ) && ! empty( $data['billing']['uk_field'] ) ) {
-        $order->update_meta_data( 'uk_field', sanitize_text_field( $data['billing']['uk_field'] ) );
-    }
-}
-
-// Make the custom field required if the user's country is UK
-add_filter( 'woocommerce_checkout_fields', 'make_uk_field_required' );
-function make_uk_field_required( $fields ) {
-    if ( isset( $fields['billing']['uk_field'] ) && ! empty( $fields['billing']['uk_field'] ) ) {
-        $fields['billing']['uk_field']['required'] = ( WC()->customer->get_billing_country() === 'GB' ) ? true : false;
-    }
-    return $fields;
-};
-
-*/
 
 //Edit Regional Leaders Below
 $africaLeader ='<div class="r_leader"><h3>Africa</h3><h4>Angela Jennings</h4><h4>capetown@awakeningprayerhubs.com</h4><br></div>';
+$africaNigeraLeader ='<div class="r_leader"><h3>Nigeria</h3><h4>Jeremiah Aihumeken-Okhai</h4><h4>yola@awakeningprayerhubs.com</h4><br></div>';
+$africaUgandaLeader ='<div class="r_leader"><h3>Uganda</h3><h4>Agnes Amony</h4><h4>kampala@awakeningprayerhubs.com</h4><br></div>';
 $asiaLeader='<div class="r_leader"><h3>Asia Pacific</h3><h4>Daisy Wardani</h4><h4>jakartaselatan@awakeningprayerhubs.com</h4><br></div>';
 $caribbeanLeader='<div class="r_leader"><h3>Caribbean</h3><h4>Joy Parkman</h4><h4>birmingham@awakeningprayerhubs.com</h4><br></div>';
 $canadaLeader='<div class="r_leader"><h3>Canada</h3><h4>Jennifer LeClaire</h4><h4>canada@awakeningprayerhubs.com</h4><br></div>';
@@ -75,9 +25,24 @@ $latinAmericaLeader='<div class="r_leader">
 <h4>latinamerica@awakeningprayerhubs.com</h4>
 <br></div>';
 $scandanaviaLeader='<div class="r_leader"><h3>Scandinavia</h3><h4>Jennifer LeClaire</h4><h4>europe@awakeningprayerhubs.com</h4><br></div>';
-$oceanaLeader ='<div class="r_leader"><h3>Oceana</h3><h4>Jennifer LeClaire</h4><h4>oceana@awakeningprayerhubs.com</h4><br></div>';
+$oceaniaLeader ='<div class="r_leader">
+<h3>Oceania</h3>
+<h4>Gwen Thompson</h4>
+<h4>brisbane@awakeningprayerhubs.com</h4><br></div>';
 $usSouthLeader='<div class="r_leader"><h3>US South</h3><h4>Joy Parkman</h4><h4>birmingham@awakeninghouseofprayer.com</h4><br></div>';
-$usNortheastLeader='<div class="r_leader"><h3>US northeast</h3><h4>Audra Moodley</h4><h4>sidney@awakeningprayerhubs.com</h4><br></div>';
+$usNortheastLeader='<div class="r_leader">
+<h3>US northeast</h3>
+<h4>Audra Moodley</h4>
+<h4>sidney@awakeningprayerhubs.com</h4>
+<br></div>
+<br>
+<div class="r_subleader">
+<p><strong>Maryland</strong><br>
+LaShonda Whitehead<br>
+Forestville@awakeningprayerhubs.com</p>
+</div>
+';
+
 $usMidwestLeader='<div class="r_leader">
 <center><h3>East Midwest Leader</h3>
 <h4>Michigan, Indiana, Ohio, Kentucky</h4>
@@ -98,9 +63,9 @@ $usWestLeader=
 '<div class="r_leader">
 <center><h3>US West Leaders</h3>
 <br>
-<h3>West Pacific: Ray and Lidia Gunaka</h3>
+<h3>West Pacific: Jennifer LeClaire</h3>
 <h4>California, Nevada, Oregon, Washington</h4>
-<h4>santaclarita@awakeningprayerhubs.com</h4>
+<h4>launch@awakeningprayerhubs.com</h4>
 <br>
 <h3>West Mountain: Annette Kotsay-Osen</h3>
 <h4>Arizona, Idaho, New Mexico, Utah, Colorado, Wyoming, Montana</h4>
@@ -152,7 +117,8 @@ function near_by_location()
   echo "<div id='comp-latin-america' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=LATIN-AMERICA&country=Latin%20America' target='_self' id='comp-latin-america' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>LATIN AMERICA</span></a></div>";
   echo "<div id='comp-scandanavia' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=SCANDANAVIA&country=Scandinavia' target='_self' id='comp-scandanavia' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>SCANDANAVIA</span></a></div>";
   echo "<div id='comp-middle-east' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=MIDDLE-EAST&country=Middle East' target='_self' id='comp-middle-east' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Middle East</span></a></div>";
-  echo "<div id='comp-oceana' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=OCEANA&country=Oceana' target='_self' id='comp-oceana' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Oceana</span></a></div>";
+  echo "<div id='comp-oceania' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=OCEANIA&country=Oceania' target='_self' id='comp-oceania' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>Oceania</span></a></div>";
+  echo "<div id='comp-us' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=US&country=United States' target='_self' id='comp-us' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>United States</span></a></div>";
 
 
 //ADD TO CSV LIST COUNTRIES THAT ARE PART OF A REGION
@@ -167,6 +133,7 @@ function near_by_location()
       'AU',
       'BB',/*Barbados*/
       'BD', /*Bangladesh*/
+      'BE', /*Belgium*/
       'BG', /*Bulgaria*/
       'BJ', /*Benin*/
       'BR',
@@ -174,6 +141,7 @@ function near_by_location()
       'BN', /*Brunei*/
       'BO',
       'BS',
+      'BT', /*Bhutan*/
       'BW',
       'BZ', /*Belize*/
       'CA', /*Canada*/
@@ -209,6 +177,7 @@ function near_by_location()
       'HK', /*Hong Kong*/
       'HN', /*Honduras*/
       'ID',
+      'IE', /*Ireland*/
       'IL',
       'IR', /*Iran*/
       'IS',
@@ -243,6 +212,7 @@ function near_by_location()
       'PL', /*Poland*/
       'PR',
       'PT', /*Portugal*/
+      'PY'. /*Paraguay*/
       'RO', /*Romania*/
       'RS', /*Serbia*/
       'RW', /*Rwanda*/
@@ -308,19 +278,29 @@ function near_by_location_city()
       // $table_name=st_register_user;
           $usstatval = explode(",",$_GET['nearby']);
            echo '<div class="LocationnearByList"><div class="container" style="padding-top:30px;"><div class="Location-row">';
-                  foreach($usstatval as $stateus)
-          {
-                 $results = $wpdb->get_results( "SELECT * FROM $table_name where  subscription_status='active' AND billing_state='".$stateus."' AND billing_country='US' GROUP BY billing_email  ORDER BY id ASC " );
-
+            foreach($usstatval as $stateus){
+              if($_GET['country']=='US'){     
+                $qurey =  "SELECT * FROM $table_name where  subscription_status='active' AND billing_state='".$stateus."' AND billing_country='US' GROUP BY billing_email  ORDER BY id ASC ";
+              
+              }
+               if($_GET['country']=='GB'){ 
+                $qurey =  "SELECT * FROM $table_name where  subscription_status='active' AND uk_field='".$_GET['nearby']."' AND billing_country='GB' GROUP BY billing_email  ORDER BY id ASC ";
+              }
+                //print_r($qurey); //SHOW Qurey for State
+              $results = $wpdb->get_results($qurey);
+               
+         
            //echo "<pre>";
-          // print_r($results);
+           //print_r($results);
+
+
               if(!empty($results))                        // Checking if $results have some values or not
                 {
                    foreach($results as $row){
               $uemail =$row->billing_email;
                $aw_email = explode('@',$uemail);
                if($aw_email[1] == 'awakeningprayerhubs.com' || $aw_email[1] == 'awakeingprayerhubs.com'){
-             if($row->billing_country=='US'){
+              if ($row->billing_country == 'US' || $row->billing_country == 'GB') {
                 $order = wc_get_order( $row->order_id );
                 $items = $order->get_items();
                 $proid = array();
@@ -340,11 +320,11 @@ function near_by_location_city()
                           <p>'.$row->billing_city.'</p>
                           <p><a class="change-text" data-value="'.$row->billing_email.'">Click To Show Email</a></p>
                         </div></div>';
-                         }
+                  }
 
+            }
               }
-           }
-                 }
+                    }  
               }
         }
       echo '</div></div></div>';
@@ -361,7 +341,9 @@ function near_by_location_city()
 
        $table_name=$wpdb->prefix."register_user";
           $usstatval = explode(",",$_GET['nearbycity']);
+
           $results = $wpdb->get_results( "SELECT * FROM $table_name where subscription_status='active' AND billing_city='".$_GET['nearbycity']."' AND billing_country='".$_GET['country']."' GROUP BY billing_email   ORDER BY id DESC "  );
+          
           echo '<div class="LocationnearByList"><div class="container" ><div class="Location-row">';
 
 
@@ -397,7 +379,7 @@ add_shortcode('near_by_location_city','near_by_location_city');
 //CREATES REGION PAGES AND CITY PAGES
 function get_user_city()
   {
-global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$latinAmericaLeader, $oceanaLeader,$caribbeanLeader,$canadaLeader;
+global $africaLeader,$africaNigeraLeader,$africaUgandaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$latinAmericaLeader, $oceaniaLeader,$caribbeanLeader,$canadaLeader;
 
  if($_GET['region']){
         $billing_country_name = $_GET['country'];
@@ -426,13 +408,21 @@ global $africaLeader,$scandanaviaLeader,$asiaLeader,$europeLeader,$latinAmericaL
         if ($billing_country_name_city == 'SCANDANAVIA'){
           echo $scandanaviaLeader;
         }
-        if ($billing_country_name_city == 'OCEANA'){
-          echo $oceanaLeader;
+        if ($billing_country_name_city == 'OCEANIA'){
+          echo $oceaniaLeader;
+        }
+        if ($billing_country_name_city == 'NG'){
+          echo $africaNigeraLeader;
+        }
+        if ($billing_country_name_city == 'UG'){
+          echo $africaUgandaLeader;
         }
 
 
     global $wpdb;
 $table_name=$wpdb->prefix."register_user";
+
+    //US States
     if( $_GET['region'] == 'US'){
      echo $_GET['region'];
       echo '<div id="location-banner" class="location-banner">
@@ -442,13 +432,31 @@ $table_name=$wpdb->prefix."register_user";
   </div>
   <div class="container"> <div class="countryOptiontabList">';
 
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AL,DC,FL,GA,LA,MS,NC,SC,TN,VA,WV &country=US &regions=South" target="_self">South</a><p><span style="font-size:12px;">( AL, DC, FL, GA, LA, MS, NC, SC, TN, VA, WV )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,DE,MA,MD,ME,NH,NJ,NY,PA,RI,VT &country=US &regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IA,IL,IN,KS,KY,MI,MN,MO,ND,NE,OH,SD,WI &country=US &regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">( IA, IL, IN, KS, KY, MI, MN, MO, ND, NE, OH, SD, WI )</span></p></div>';
-      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AR,AK,AZ,CA,CO,HI,ID,MT,NM,NV,OK,OR,TX,UT,WA,WY &country=US &regions=West" target="_self">West</a><p><span style="font-size:12px;">( AR, AK, AZ, CA, CO, HI, ID, MT, NM, NV, OK, OR, TX, UT, WA, WY )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AL,DC,FL,GA,LA,MS,NC,SC,TN,VA,WV&country=US&regions=South" target="_self">South</a><p><span style="font-size:12px;">( AL, DC, FL, GA, LA, MS, NC, SC, TN, VA, WV )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=CT,DE,MA,MD,ME,NH,NJ,NY,PA,RI,VT&country=US&regions=Northeast" target="_self">Northeast</a><p><span style="font-size:12px;">( CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=IA,IL,IN,KS,KY,MI,MN,MO,ND,NE,OH,SD,WI&country=US&regions=Midwest" target="_self">Midwest</a><p><span style="font-size:12px;">( IA, IL, IN, KS, KY, MI, MN, MO, ND, NE, OH, SD, WI )</span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=AR,AK,AZ,CA,CO,HI,ID,MT,NM,NV,OK,OR,TX,UT,WA,WY&country=US&regions=West" target="_self">West</a><p><span style="font-size:12px;">( AR, AK, AZ, CA, CO, HI, ID, MT, NM, NV, OK, OR, TX, UT, WA, WY )</span></p></div>';
       echo "<div id='comp-usterritories' class='countryOptiontab '><a href='".get_site_url()."/location-map/?region=US-TERRITORIES&country=US Territories' target='_self' id='comp-usterritories' class='g-transparent-a style-jteshxcwlink'><span id='comp-jteshxcplabel' class='style-jteshxcwlabel'>US Territories</span></a></div>";
   #    echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VI&country=Virgin Islands" target="_self">Virgin Islands</a><p><span style="font-size:12px;">( VI )</span></p></div>';
     }
+
+ //UK Countries
+else if( $_GET['region'] == 'GB'){
+
+          echo $_GET['region'];
+          echo '<div id="location-banner" class="location-banner">
+            <div class="container">
+            <h2>'.$billing_country_name.'</h2>
+            </div>
+         </div>
+         <div class="container"> <div class="countryOptiontabList">';
+       
+          echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=England&country=GB&regions=England" target="_self">England</a></div>';
+          echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=Scotland&country=GB&regions=Scotland" target="_self">Scotland</a></div>';
+          echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=Wales&country=GB&regions=Wales" target="_self">Wales</a></div>';
+          echo '<div class="countryOptiontab"><a href="'.get_site_url().'/near-by-city/?nearby=Northern Ireleand&country=GB&regions=Northern Ireleand" target="_self">Northern Ireleand</a></div>';
+           
+}
 
 //ADD else if statement for each region
 
@@ -509,6 +517,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
     <div class="container"> <div class="countryOptiontabList">';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BD&country=Bangladesh" target="_self">Bangladesh</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BN&country=Brunei" target="_self">Brunei</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BT&country=Bhutan" target="_self">Bhutan</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CN&country=China" target="_self">China</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=HK&country=Hong Kong" target="_self">Hong Kong</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IN&country=India" target="_self">India</a><p><span style="font-size:12px;"></span></p></div>';
@@ -560,6 +569,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
     <div class="container"> <div class="countryOptiontabList">';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AL&country=Albania" target="_self">Albania</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=AT&country=Austria" target="_self">Austria</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BE&country=Belgium" target="_self">Belgium</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BG&country=Bulgaria" target="_self">Bulgaria</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=HR&country=Croatia" target="_self">Croatia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CZ&country=Czech Republic" target="_self">Czech Republic</a><p><span style="font-size:12px;"></span></p></div>';
@@ -567,6 +577,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FO&country=Faroe Islands" target="_self">Faroe Islands</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=FR&country=France" target="_self">France</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=DE&country=Germany" target="_self">Germany</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IE&country=Ireland" target="_self">Ireland</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=IT&country=Italy" target="_self">Italy</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=LV&country=Latvia" target="_self">Latvia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=LT&country=Lithuania" target="_self">Lithuania</a><p><span style="font-size:12px;"></span></p></div>';
@@ -594,12 +605,14 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=BO&country=Bolivia" target="_self">Bolivia</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CL&country=Chile" target="_self">Chile</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CO&country=Colombia" target="_self">Colombia</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=CR&country=Costa Rica" target="_self">Costa Rica</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=EC&country=Ecuador" target="_self">Ecuador</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SV&country=El Salvador" target="_self">El Salvador</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=GT&country=Guatemala" target="_self">Guatemala</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=HN&country=Honduras" target="_self">Honduras</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=MX&country=Mexico" target="_self">Mexico</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=NI&country=Nicaragua" target="_self">Nicaragua</a><p><span style="font-size:12px;"></span></p></div>';
+      echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PY&country=Paraguay" target="_self">Paraguay</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=PE&country=Peru" target="_self">Peru</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=SR&country=Suriname" target="_self">Suriname</a><p><span style="font-size:12px;"></span></p></div>';
       echo '<div class="countryOptiontab"><a href="'.get_site_url().'/location-map/?region=VE&country=Venezuela" target="_self">Venezuela</a><p><span style="font-size:12px;"></span></p></div>';
@@ -634,7 +647,7 @@ else if( $billing_country_name_city == 'US-TERRITORIES'){
 
     }
 
-    else if( $billing_country_name_city == 'OCEANA'){
+    else if( $billing_country_name_city == 'OCEANIA'){
       echo '<div id="location-banner" class="location-banner">
          <div class="container">
          <h2>'.$billing_country_name.'</h2>

@@ -349,6 +349,17 @@ span.tg-prod-price {
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
+
+
+.r_subleader {
+   width: 80%;
+   position: relative;
+   text-align: left;
+   max-width: 1080px;
+   margin: auto;
+}
+
+
  .page-id-269 .search-near-by{padding-top: 20px;padding-left:120px;}
 .search-near-by{padding-top: 20px;}
 .search-input{width: 79%;height:30px;}

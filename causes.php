@@ -175,7 +175,7 @@ function select_hub_cause()
   
   $results = $wpdb->get_results("SELECT cause FROM ahubs_com.wp_register_user where subscription_status = 'active' and user_id = ". $userID );
 
-  
+
   foreach ($results as $row) {
     if($row->cause == ''){
       $cause_menu .= '<option value="" selected disabled hidden>Choose Your Prayer Cause</option>';
